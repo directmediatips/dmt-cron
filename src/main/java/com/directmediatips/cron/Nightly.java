@@ -17,9 +17,10 @@ package com.directmediatips.cron;
 import java.io.File;
 import java.io.FilenameFilter;
 
-import com.directmediatips.twitter.BanBlockedMachine;
-import com.directmediatips.twitter.HarvestInfoMachine;
-import com.directmediatips.twitter.UpdateMetricsMachine;
+import com.directmediatips.twitter.data.BanBlockedMachine;
+import com.directmediatips.twitter.google.HarvestInfoMachine;
+import com.directmediatips.twitter.google.UpdateKloutMachine;
+import com.directmediatips.twitter.google.UpdateMetricsMachine;
 
 /**
  * This class combines all the actions we want to put into a cron job that
@@ -37,9 +38,11 @@ public class Nightly {
 		});
 		for (String f : list) {
 			String account = f.substring(0, f.indexOf(".properties"));
-			BanBlockedMachine.main(new String[]{account});
-			UpdateMetricsMachine.main(new String[]{account});
-			HarvestInfoMachine.main(new String[]{account});
+			String[] arguments = new String[]{account};
+			BanBlockedMachine.main(arguments);
+			UpdateMetricsMachine.main(arguments);
+			UpdateKloutMachine.main(arguments);
+			HarvestInfoMachine.main(arguments);
 		}
 		
 	}

@@ -17,8 +17,8 @@ package com.directmediatips.cron;
 import java.io.File;
 import java.io.FilenameFilter;
 
-import com.directmediatips.twitter.AccountUpdateMachine;
 import com.directmediatips.twitter.RemoveInactiveMachine;
+import com.directmediatips.twitter.data.AccountUpdateMachine;
 
 /**
  * This class combines all the actions we want to put into a cron job that
@@ -37,11 +37,12 @@ public class Monthly {
 		});
 		for (String f : list) {
 			String account = f.substring(0, f.indexOf(".properties"));
+			String[] arguments = new String[]{account};
 			if (onlyOnce) {
 				onlyOnce = false;
-				AccountUpdateMachine.main(new String[]{account});
+				AccountUpdateMachine.main(arguments);
 			}
-			RemoveInactiveMachine.main(new String[]{account});
+			RemoveInactiveMachine.main(arguments);
 		}
 	}
 }

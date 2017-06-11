@@ -4,7 +4,7 @@
 
   <groupId>com.directmediatips</groupId>
   <artifactId>dmt-cron</artifactId>
-  <version>0.0.2-SNAPSHOT</version>
+  <version>0.0.2</version>
   <packaging>jar</packaging>
 
   <name>directmedia</name>
@@ -18,7 +18,7 @@
     <dependency>
       <groupId>com.directmediatips</groupId>
       <artifactId>dmt-twitter</artifactId>
-      <version>0.0.2-SNAPSHOT</version>
+      <version>0.0.2</version>
     </dependency>
   </dependencies>
 </project>

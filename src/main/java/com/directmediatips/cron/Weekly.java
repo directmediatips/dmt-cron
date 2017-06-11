@@ -17,10 +17,10 @@ package com.directmediatips.cron;
 import java.io.File;
 import java.io.FilenameFilter;
 
-import com.directmediatips.twitter.AccountInfoMachine;
 import com.directmediatips.twitter.FollowBackMachine;
 
 import com.directmediatips.twitter.QuoteMachine;
+import com.directmediatips.twitter.data.AccountInfoMachine;
 
 /**
  * This class combines all the actions we want to put into a cron job that
@@ -38,9 +38,10 @@ public class Weekly {
 		});
 		for (String f : list) {
 			String account = f.substring(0, f.indexOf(".properties"));
-			AccountInfoMachine.main(new String[]{account});
-			FollowBackMachine.main(new String[]{account});
-			QuoteMachine.main(new String[]{account});
+			String[] arguments = new String[]{account};
+			AccountInfoMachine.main(arguments);
+			FollowBackMachine.main(arguments);
+			QuoteMachine.main(arguments);
 		}
 	}
 }
