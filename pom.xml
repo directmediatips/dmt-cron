@@ -7,7 +7,8 @@
   <version>0.1.0</version>
   <packaging>jar</packaging>
 
-  <name>directmedia</name>
+  <name>${project.groupId}:${project.artifactId}</name>
+  <description>Set of classes that execute automated social media operations (to use in a cron job on a server).</description>
   <url>http://directmediatips.com</url>
 
   <distributionManagement>
